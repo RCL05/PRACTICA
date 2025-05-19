@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "nombre": "Doo-Wops \u0026 Hooligans",
+        "fecha": "Jun 2, 2025, 7:00:00 PM",
+        "id_banda": 87
+    },
+    {
+        "id": 2,
+        "nombre": "Thriller",
+        "fecha": "Apr 29, 2024, 7:00:00 PM",
+        "id_banda": 90
+    },
+    {
+        "id": 3,
+        "nombre": "Born This Way",
+        "fecha": "Jun 5, 2025, 7:00:00 PM"
+    },
+    {
+        "id": 4,
+        "nombre": "21",
+        "fecha": "Jun 5, 2025, 7:00:00 PM"
+    },
+    {
+        "id": 5,
+        "nombre": "In Tongues",
+        "fecha": "Sep 21, 2017, 7:00:00 PM"
+    }
+]

@@ -47,6 +47,15 @@
             <artifactId>vaadin-spring-boot-starter</artifactId>
         </dependency>
 
+                <!-- Gson -->
+    <dependency>
+        <groupId>com.google.code.gson</groupId>
+        <artifactId>gson</artifactId>
+        <version>2.11.0</version>
+    </dependency>
+
+
+
         <!-- Persistence -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
