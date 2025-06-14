@@ -375,7 +375,19 @@ public E deleteFirst () throws ArrayIndexOutOfBoundsException {
         System.out.println(lista.print());
         System.out.println("Final");
     }
-
+public void set(int index, E value) {
+    Node<E> current = head;
+    int count = 0;
+    while (current != null) {
+        if (count == index) {
+            current.setData(value);
+            return;
+        }
+        current = current.getNext();
+        count++;
+    }
+    throw new IndexOutOfBoundsException("Índice fuera de rango: " + index);
+}
 
     
 }

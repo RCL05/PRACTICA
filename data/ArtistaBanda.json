@@ -1,1 +1,38 @@
-[{"id":1,"id_artista":1,"id_banda":1}]
+[
+    {
+        "id": 1,
+        "rol": "VOCALISTA",
+        "id_artista": 1,
+        "id_banda": 1
+    },
+    {
+        "id": 2,
+        "rol": "BAJISTA",
+        "id_artista": 2,
+        "id_banda": 2
+    },
+    {
+        "id": 3,
+        "rol": "GUITARRISTA",
+        "id_artista": 3,
+        "id_banda": 3
+    },
+    {
+        "id": 4,
+        "rol": "CHELISTA",
+        "id_artista": 4,
+        "id_banda": 3
+    },
+    {
+        "id": 5,
+        "rol": "CLARINETISTA",
+        "id_artista": 5,
+        "id_banda": 5
+    },
+    {
+        "id": 6,
+        "rol": "BAJO_SEXTO",
+        "id_artista": 6,
+        "id_banda": 6
+    }
+]

@@ -1,1 +1,38 @@
-[{"id":1,"nombre":"Rock"},{"id":2,"nombre":"POP"},{"id":3,"nombre":"City Pop"},{"id":4,"nombre":"Asiatica"},{"id":5,"nombre":"Sountrack"},{"id":6,"nombre":"DubStupe"},{"id":7,"nombre":"Phunk"}]
+[
+    {
+        "id": 1,
+        "nombre": "Rock"
+    },
+    {
+        "id": 2,
+        "nombre": "POP"
+    },
+    {
+        "id": 3,
+        "nombre": "City Pop"
+    },
+    {
+        "id": 4,
+        "nombre": "Asiatica"
+    },
+    {
+        "id": 5,
+        "nombre": "Sountrack"
+    },
+    {
+        "id": 6,
+        "nombre": "DubStupe"
+    },
+    {
+        "id": 7,
+        "nombre": "Phunk"
+    },
+    {
+        "id": 8,
+        "nombre": "Lap"
+    },
+    {
+        "id": 9,
+        "nombre": "Jazz "
+    }
+]

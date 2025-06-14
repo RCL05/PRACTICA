@@ -1,5 +1,5 @@
 import { ViewConfig } from '@vaadin/hilla-file-router/types.js';
-import { Button, ComboBox, DatePicker, Dialog, Grid, GridColumn, GridItemModel, TextField, VerticalLayout } from '@vaadin/react-components';
+import { Button, ComboBox, DatePicker, Dialog, Grid, GridColumn, GridItemModel, GridSortColumn, HorizontalLayout, Icon, Select, TextField, VerticalLayout } from '@vaadin/react-components';
 import { Notification } from '@vaadin/react-components/Notification';
 
 import { useSignal } from '@vaadin/hilla-react-signals';
@@ -39,7 +39,7 @@ type CancionEntryFormUpdateProps = {
 // Ingrasar Cancion
 function CancionEntryForm(props: CancionEntryFormProps) {
 
-  
+
 
   const open = () => {
     dialogOpened.value = true;
@@ -66,8 +66,8 @@ function CancionEntryForm(props: CancionEntryFormProps) {
         album.value.toString().length > 0 &&
         genero.value.toString().length > 0
       ) {
-        const id_genero = parseInt(genero.value) +1;
-        const id_album = parseInt(album.value) +1;
+        const id_genero = parseInt(genero.value) + 1;
+        const id_album = parseInt(album.value) + 1;
         await CancionService.create(nombre.value, id_genero, parseInt(duracion.value), url.value, tipo.value, id_album);
         if (props.onCancionCreated) {
           props.onCancionCreated();
@@ -89,7 +89,7 @@ function CancionEntryForm(props: CancionEntryFormProps) {
       handleError(error);
     }
   };
-    
+
   let listaGenero = useSignal<String[]>([]);
   useEffect(() => {
     CancionService.listaAlbumGenero().then(data =>
@@ -112,7 +112,7 @@ function CancionEntryForm(props: CancionEntryFormProps) {
       listaTipo.value = data
     );
   }, []);
-const dialogOpened = useSignal(false);
+  const dialogOpened = useSignal(false);
   return (
     <>
       <Dialog
@@ -176,19 +176,19 @@ const dialogOpened = useSignal(false);
               value={duracion.value}
               onValueChanged={(evt) => (duracion.value = evt.detail.value)}
             />
-            <ComboBox label="Album" 
-            items={listaAlbum.value}
-            placeholder='Seleccione un album'
-            aria-label='Seleccione un album de la lista'
-            value={album.value}
-            onValueChanged={(evt) => (album.value = evt.detail.value)}
+            <ComboBox label="Album"
+              items={listaAlbum.value}
+              placeholder='Seleccione un album'
+              aria-label='Seleccione un album de la lista'
+              value={album.value}
+              onValueChanged={(evt) => (album.value = evt.detail.value)}
             />
-            <ComboBox label="Genero" 
-            items={listaGenero.value}
-            placeholder='Seleccione un genero'
-            aria-label='Seleccione un genero de la lista'
-            value={genero.value}
-            onValueChanged={(evt) => (genero.value = evt.detail.value)}
+            <ComboBox label="Genero"
+              items={listaGenero.value}
+              placeholder='Seleccione un genero'
+              aria-label='Seleccione un genero de la lista'
+              value={genero.value}
+              onValueChanged={(evt) => (genero.value = evt.detail.value)}
             />
 
             <ComboBox label="Tipo de archivo"
@@ -201,6 +201,7 @@ const dialogOpened = useSignal(false);
           </VerticalLayout>
         </VerticalLayout>
       </Dialog>
+
       <Button onClick={open}>Registrar</Button>
     </>
   );
@@ -244,11 +245,12 @@ function CancionEntryFormUpdate(props: CancionEntryFormUpdateProps) {
         url.value.trim().length > 0 &&
         duracion.value.toString().length > 0 &&
         tipo.value &&
-        album.value.toString().length > 0 &&
-        genero.value.toString().length > 0) {
-        const id_genero = parseInt(genero.value) +1; ;
-        const id_album = parseInt(album.value) +1;
-        await CancionService.update(parseInt(ident.value), nombre.value, id_genero, parseInt(duracion.value), url.value, tipo.value, id_album);
+        album.value.toString().length > 0
+        && genero.value.toString().length > 0
+      ) {
+        const id_genero = parseInt(genero.value) + 1;;
+        const id_album = parseInt(album.value) + 1;
+        await CancionService.update(parseInt(ident.value) - 1, nombre.value, id_genero, parseInt(duracion.value), url.value, tipo.value, id_album);
         if (props.onCancionUpdateted) {
           props.onCancionUpdateted();
         }
@@ -262,14 +264,14 @@ function CancionEntryFormUpdate(props: CancionEntryFormUpdateProps) {
         Notification.show('Canción actualizada', { duration: 5000, position: 'bottom-end', theme: 'success' });
       } else {
         Notification.show('No se pudo actualizar, faltan datos', { duration: 5000, position: 'top-center', theme: 'error' });
-      } 
+      }
 
     } catch (error) {
       console.log(error);
       handleError(error);
     }
   };
-   
+
   let listaGenero = useSignal<String[]>([]);
   useEffect(() => {
     CancionService.listaAlbumGenero().then(data =>
@@ -292,7 +294,7 @@ function CancionEntryFormUpdate(props: CancionEntryFormUpdateProps) {
       listaTipo.value = data
     );
   }, []);
-const dialogOpened = useSignal(false);
+  const dialogOpened = useSignal(false);
   return (
     <>
       <Dialog
@@ -355,19 +357,19 @@ const dialogOpened = useSignal(false);
               value={duracion.value}
               onValueChanged={(evt) => (duracion.value = evt.detail.value)}
             />
-             <ComboBox label="Album" 
-            items={listaAlbum.value}
-            placeholder='Seleccione un album'
-            aria-label='Seleccione un album de la lista'
-            value={album.value}
-            onValueChanged={(evt) => (album.value = evt.detail.value)}
+            <ComboBox label="Album"
+              items={listaAlbum.value}
+              placeholder='Seleccione un album'
+              aria-label='Seleccione un album de la lista'
+              value={album.value}
+              onValueChanged={(evt) => (album.value = evt.detail.value)}
             />
-            <ComboBox label="Genero" 
-            items={listaGenero.value}
-            placeholder='Seleccione un genero'
-            aria-label='Seleccione un genero de la lista'
-            value={genero.value}
-            onValueChanged={(evt) => (genero.value = evt.detail.value)}
+            <ComboBox label="Genero"
+              items={listaGenero.value}
+              placeholder='Seleccione un genero'
+              aria-label='Seleccione un genero de la lista'
+              value={genero.value}
+              onValueChanged={(evt) => (genero.value = evt.detail.value)}
             />
             <ComboBox label="Tipo de archivo"
               items={listaTipo.value}
@@ -392,18 +394,90 @@ const dateFormatter = new Intl.DateTimeFormat(undefined, {
 });
 
 
-export default function CancionLisView() { 
+export default function CancionLisView() {
 
-  const dataProvider = useDataProvider<Cancion>({
-    list: () => CancionService.listCancion(),
-  });
+
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    CancionService.listAllCancion().then((data) => {
+      setItems(data);
+    });
+  }, []);
+  const reloadCanciones = () => {
+    CancionService.listAllCancion().then((data) => setItems(data));
+  };
+
+  const order = (event, columnId) => {
+    console.log(event);
+    const direction = event.detail.value;
+    console.log(`sorting by ${columnId} to ${direction}`);
+    var dir = (direction == "asc") ? 1 : 2;
+    if (direction === "original") {
+      dir = 0; // o null, según tu backend
+    } else if (direction === "asc") {
+      dir = 1;
+    } else {
+      dir = 2;
+    }
+    CancionService.order(columnId, dir).then((data) => {
+      setItems(data);
+    });
+  };
+
+
+  const criterio = useSignal('');
+  const texto = useSignal('');
+  const itemSelect = [
+    {
+      label: 'Nombre',
+      value: 'nombre',
+    },
+    {
+      label: 'Duración',
+      value: 'duracion',
+    },
+    {
+      label: 'Tipo',
+      value: 'tipo',
+    },
+    {
+      label: 'Album',
+      value: 'albun',
+    },
+    {
+      label: 'Genero',
+      value: 'genero',
+    },
+    {
+      label: 'Url',
+      value: 'url',
+    },
+  ];
+  const search = async () => {
+    try {
+      console.log(criterio.value + " " + texto.value);
+      CancionService.search(criterio.value, texto.value, 0).then(function (data) {
+        setItems(data);
+      });
+
+      criterio.value = '';
+      texto.value = '';
+
+      Notification.show('Busqueda realizada', { duration: 5000, position: 'bottom-end', theme: 'success' });
+
+
+    } catch (error) {
+      console.log(error);
+      handleError(error);
+    }
+  };
 
   function link({ item }: { item: Cancion }) {
     return (
       <span>
-        <CancionEntryFormUpdate arguments={item} onCancionUpdateted={dataProvider.refresh} />
+        <CancionEntryFormUpdate arguments={item} onCancionUpdateted={reloadCanciones} />
       </span>
-    )
+    );
   }
 
   function index({ model }: { model: GridItemModel<Cancion> }) {
@@ -418,21 +492,40 @@ export default function CancionLisView() {
     <main className="w-full h-full flex flex-col box-border gap-s p-m">
       <ViewToolbar title="Canciones">
         <Group>
-          <CancionEntryForm onCancionCreated={dataProvider.refresh} />
+
+          <CancionEntryForm onCancionCreated={reloadCanciones} />
         </Group>
+        <HorizontalLayout theme="spacing">
+          <Select items={itemSelect}
+            value={criterio.value}
+            onValueChanged={(evt) => (criterio.value = evt.detail.value)}
+            placeholder="Selecione un cirterio">
+
+
+          </Select>
+
+          <TextField
+            placeholder="Search"
+            style={{ width: '50%' }}
+            value={texto.value}
+            onValueChanged={(evt) => (texto.value = evt.detail.value)}
+          >
+            <Icon slot="prefix" icon="vaadin:search" />
+          </TextField>
+          <Button onClick={search} theme="primary">
+            BUSCAR
+          </Button>
+        </HorizontalLayout>
       </ViewToolbar>
-      <Grid dataProvider={dataProvider.dataProvider}>
+      <Grid items={items}>
         <GridColumn renderer={index} header="Nro" />
-        <GridColumn path="nombre" header="Nombre" />
-        <GridColumn path="duracion" header="Duración" />
-        <GridColumn path="tipo" header="Tipo" />
-        <GridColumn path={'albun'} header="Nombre Album" />
-        <GridColumn path={'genero'} header="Nombre Genero" />  
-        <GridColumn path="url" header="Url" >
-
-
-        </GridColumn>
-        <GridColumn header="Acciones"  renderer={link} />
+        <GridSortColumn onDirectionChanged={(e) => order(e, "nombre")} path="nombre" header="Nombre" />
+        <GridSortColumn onDirectionChanged={(e) => order(e, "duracion")} path="duracion" header="Duración" />
+        <GridSortColumn onDirectionChanged={(e) => order(e, "tipo")} path="tipo" header="Tipo" />
+        <GridSortColumn onDirectionChanged={(e) => order(e, "albun")} path={'albun'} header="Nombre Album" />
+        <GridSortColumn onDirectionChanged={(e) => order(e, "genero")} path={'genero'} header="Nombre Genero" />
+        <GridSortColumn onDirectionChanged={(e) => order(e, "url")} path="url" header="Url" />
+        <GridColumn header="Acciones" renderer={link} />
       </Grid>
     </main>
   );

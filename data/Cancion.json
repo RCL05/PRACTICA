@@ -1,1 +1,147 @@
-[{"id":1,"nombre":"the girl next door - ON TOP","duracion":100,"id_genero":2,"url":"fws.com","tipo":"VIRTUAL","id_album":2},{"id":2,"nombre":"Demons","duracion":248,"id_genero":5,"url":"https://music.youtube.com/watch?v\u003dqAJqbc_JqrM\u0026si\u003dd5tljHQ5fEKWVnW2","tipo":"VIRTUAL","id_album":2},{"id":3,"nombre":" I watch the moon","duracion":200,"id_genero":4,"url":"https://www.youtube.com/watch?v\u003dWBgpL0c9dCQ","tipo":"STREAMING","id_album":5},{"id":4,"nombre":"Let it happen","duracion":174,"id_genero":3,"url":"https://www.youtube.com/watch?v\u003d-sJU-n-aTxA","tipo":"STREAMING","id_album":2},{"id":5,"nombre":"Let It Happen","duracion":140,"id_genero":2,"url":"https://www.youtube.com/watch?v\u003d-sJU-n-aTxA","tipo":"VIRTUAL","id_album":3}]
+[
+    {
+        "id": 1,
+        "nombre": "Let It happen",
+        "duracion": 250,
+        "id_genero": 2,
+        "url": "https://www.youtube.com/watch?v\u003dodeHP8N4LKc\u0026pp\u003dygUNbGV0IGl0IGhhcHBlbg%3D%3D",
+        "tipo": "STREAMING",
+        "id_album": 7
+    },
+    {
+        "id": 2,
+        "nombre": "Solas",
+        "duracion": 250,
+        "id_genero": 9,
+        "url": "https://www.youtube.com/watch?v\u003dodeHP8N4LKc\u0026pp\u003dygUNbGV0IGl0IGhhcHBlbg%3D%3D",
+        "tipo": "STREAMING",
+        "id_album": 5
+    },
+    {
+        "id": 3,
+        "nombre": "Gymnopédie",
+        "duracion": 250,
+        "id_genero": 6,
+        "url": "https://www.youtube.com/watch?v\u003dodeHP8N4LKc\u0026pp\u003dygUNbGV0IGl0IGhhcHBlbg%3D%3D",
+        "tipo": "STREAMING",
+        "id_album": 3
+    },
+    {
+        "id": 4,
+        "nombre": "Lia",
+        "duracion": 175,
+        "id_genero": 8,
+        "url": "aoqqemx.com",
+        "tipo": "VIRTUAL",
+        "id_album": 3
+    },
+    {
+        "id": 5,
+        "nombre": "My Way",
+        "duracion": 387,
+        "id_genero": 7,
+        "url": "https://www.youtube.com/watch?v\u003dqQzdAsjWGPg\u0026list\u003dRDG8u3P7Xqlvo\u0026index\u003d13",
+        "tipo": "VIRTUAL",
+        "id_album": 7
+    },
+    {
+        "id": 6,
+        "nombre": "mbl",
+        "duracion": 800,
+        "id_genero": 7,
+        "url": "jk.com",
+        "tipo": "STREAMING",
+        "id_album": 6
+    },
+    {
+        "id": 7,
+        "nombre": "Coqueta",
+        "duracion": 250,
+        "id_genero": 2,
+        "url": "https://www.youtube.com/watch?v\u003dP9iy6wjbOiQ",
+        "tipo": "VIRTUAL",
+        "id_album": 5
+    },
+{
+    "id": 8,
+    "nombre": "Bohemian Rhapsody",
+    "duracion": 354,
+    "id_genero": 1,
+    "url": "https://www.youtube.com/watch?v=fJ9rUzIMcZQ",
+    "tipo": "STREAMING",
+    "id_album": 2
+},
+{
+    "id": 9,
+    "nombre": "Imagine",
+    "duracion": 183,
+    "id_genero": 3,
+    "url": "https://www.youtube.com/watch?v=YkgkThdzX-8",
+    "tipo": "VIRTUAL",
+    "id_album": 4
+},
+{
+    "id": 10,
+    "nombre": "Shape of You",
+    "duracion": 240,
+    "id_genero": 4,
+    "url": "https://www.youtube.com/watch?v=JGwWNGJdvx8",
+    "tipo": "STREAMING",
+    "id_album": 1
+},
+{
+    "id": 11,
+    "nombre": "Billie Jean",
+    "duracion": 294,
+    "id_genero": 5,
+    "url": "https://www.youtube.com/watch?v=Zi_XLOBDo_Y",
+    "tipo": "VIRTUAL",
+    "id_album": 2
+},
+{
+    "id": 12,
+    "nombre": "Yesterday",
+    "duracion": 125,
+    "id_genero": 3,
+    "url": "https://www.youtube.com/watch?v=NrgmdOz227I",
+    "tipo": "STREAMING",
+    "id_album": 4
+},
+{
+    "id": 13,
+    "nombre": "Hallelujah",
+    "duracion": 282,
+    "id_genero": 6,
+    "url": "https://www.youtube.com/watch?v=ttEMYvpoR-k",
+    "tipo": "VIRTUAL",
+    "id_album": 5
+},
+{
+    "id": 14,
+    "nombre": "Rolling in the Deep",
+    "duracion": 228,
+    "id_genero": 7,
+    "url": "https://www.youtube.com/watch?v=rY0WxgSXdEE",
+    "tipo": "STREAMING",
+    "id_album": 6
+},
+{
+    "id": 15,
+    "nombre": "Uptown Funk",
+    "duracion": 269,
+    "id_genero": 8,
+    "url": "https://www.youtube.com/watch?v=OPf0YbXqDm0",
+    "tipo": "VIRTUAL",
+    "id_album": 1
+},
+{
+    "id": 16,
+    "nombre": "Despacito",
+    "duracion": 230,
+    "id_genero": 9,
+    "url": "https://www.youtube.com/watch?v=kJQP7kiw5Fk",
+    "tipo": "STREAMING",
+    "id_album": 2
+}   
+
+]
