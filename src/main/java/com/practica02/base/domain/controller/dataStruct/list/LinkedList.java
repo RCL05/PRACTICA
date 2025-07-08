@@ -1,5 +1,7 @@
 package com.practica02.base.domain.controller.dataStruct.list;
 
+import java.util.Random;
+
 /*import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -94,7 +96,7 @@ public class LinkedList<E> {
         }*/
     }
 
-    private void addFirst (E data) {
+    public void addFirst (E data) {
        if (isEmpty()) {
             Node<E> aux = new Node<>(data);
             head = aux;
@@ -109,7 +111,7 @@ public class LinkedList<E> {
        length++;
     }
 
-    private void addLast (E data) {
+    public void addLast (E data) {
         if (isEmpty()) {
             addFirst(data);
         } else {
@@ -235,6 +237,29 @@ public E deleteFirst () throws ArrayIndexOutOfBoundsException {
         }
 
     }
+
+    public E remove(int pos) throws ArrayIndexOutOfBoundsException {
+    if (isEmpty()) {
+        throw new ArrayIndexOutOfBoundsException("La lista se encuentra vacía");
+    } else if (pos < 0 || pos >= length) {
+        throw new ArrayIndexOutOfBoundsException("Posición no válida, fuera de rango");
+    } else if (pos == 0) {
+        return deleteFirst();
+    } else if (pos == length - 1) {
+        try {
+            return deleteLast();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    } else {
+        Node<E> prev = getNode(pos - 1);
+        Node<E> toRemove = prev.getNext();
+        E data = toRemove.getData();
+        prev.setNext(toRemove.getNext());
+        length--;
+        return data;
+    }
+}
 
 
 //TRAnsformar la lista en un arreglo
@@ -388,6 +413,43 @@ public void set(int index, E value) {
     }
     throw new IndexOutOfBoundsException("Índice fuera de rango: " + index);
 }
+
+    public E delete(Integer pos, E data) throws Exception {
+        if (isEmpty()) {
+            throw new ArrayIndexOutOfBoundsException("List empty");
+
+        } else if (pos < 0 || pos >= length) {
+            throw new ArrayIndexOutOfBoundsException("Index out range");
+        } else if (pos == 0) {
+            return deleteFirst();
+        } else if ((length.intValue() - 1) == pos.intValue()) {
+            return deleteLast();
+        } else {
+            Node<E> preview = getNode(pos - 1);
+            Node<E> actualy = getNode(pos);
+            E element = preview.getData();
+            Node<E> next = actualy.getNext();
+            actualy = null;
+            preview.setNext(next);
+            length--;
+            return element;
+        }
+    }
+    public E removeRandom() {
+        if (length == 0) return null;
+        Random rand = new Random();
+        int idx = rand.nextInt(length);
+        try {
+            return delete(idx, get(idx));
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+        // Permite eliminar un elemento solo por posición
+    public E delete(int pos) throws Exception {
+        return delete(pos, get(pos));
+    }
 
     
 }

@@ -11,7 +11,7 @@ import { useDataProvider } from '@vaadin/hilla-react-crud';
 export const config: ViewConfig = {
   title: 'Task List',
   menu: {
-    icon: 'vaadin:clipboard-check',
+    icon: 'vaadin:academy-cap',
     order: 1,
     title: 'Task List',
   },

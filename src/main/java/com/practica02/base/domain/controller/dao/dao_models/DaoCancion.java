@@ -124,15 +124,14 @@ public class DaoCancion extends AdapterDao<Cancion> {
     }
 
     public LinkedList<HashMap<String, String>> orderByAttribute(Integer type, String attribute) throws Exception {
+
         LinkedList<HashMap<String, String>> lista = new LinkedList<>();
+        
 
         if (!all().isEmpty()) {
 
             HashMap<String, String> arr[] = all().toArray();
-             if (type == null || type == 0) {
-            lista.toList(arr);
-            return lista;
-        }
+            
             quickSort(arr, 0, arr.length - 1, type, attribute);
             lista.toList(arr);
             
@@ -180,54 +179,7 @@ public class DaoCancion extends AdapterDao<Cancion> {
         return i + 1;
     }
 
-    /*
-     * public LinkedList<HashMap<String, String>> orderByCancion(Integer type,
-     * String attribute) throws Exception {
-     * 
-     * LinkedList<HashMap<String, String>> lista = all();
-     * if (!lista.isEmpty()) {
-     * HashMap arr[] = lista.toArray();
-     * int n = arr.length;
-     * if (type == Utiles.ASCEDENTE) {
-     * // ascendente
-     * for (int i = 0; i < n - 1; i++) {
-     * int min_index = i;
-     * for (int j = i + 1; j < n; j++) {
-     * if (arr[j].get(attribute).toString().toLowerCase()
-     * .compareTo(arr[min_index].get(attribute).toString().toLowerCase()) < 0) {
-     * min_index = j;
-     * }
-     * }
-     * 
-     * HashMap temp = arr[min_index];
-     * arr[min_index] = arr[i];
-     * arr[i] = temp;
-     * }
-     * } else {
-     * // descendente
-     * for (int i = 0; i < n - 1; i++) {
-     * int min_index = i;
-     * for (int j = i + 1; j < n; j++) {
-     * if (arr[j].get(attribute).toString().toLowerCase()
-     * .compareTo(arr[min_index].get(attribute).toString().toLowerCase()) > 0) {
-     * min_index = j;
-     * }
-     * }
-     * 
-     * HashMap temp = arr[min_index];
-     * arr[min_index] = arr[i];
-     * arr[i] = temp;
-     * }
-     * }
-     * 
-     * }
-     * return lista;
-     * }
-     * 
-     */
-// public LinkedList<HashMap<String, String>> getOriginalList() throws Exception {
-//     return all();
-// }
+
     public LinkedList<HashMap<String, String>> search(String attribute, String text, Integer type) throws Exception {
         LinkedList<HashMap<String, String>> lista = all();
         LinkedList<HashMap<String, String>> resp = new LinkedList<>();
@@ -297,15 +249,7 @@ public class DaoCancion extends AdapterDao<Cancion> {
         return resp;
     }
 
-   /* public LinkedList<HashMap<String, String>> orderQ(Integer type, String attribute) throws Exception {
-        LinkedList<HashMap<String, String>> lista = new LinkedList<>();
-        if (!all().isEmpty()) {
-            HashMap<String, String> arr[] = all().toArray();
-            quickSort(arr, 0, arr.length - 1, type, attribute);
-            lista.toList(arr);
-        }
-        return lista;
-    }*/
+
 
     public Integer bynaryLineal(HashMap<String, String>[] array, String attribute, String text)
             throws Exception {
@@ -316,9 +260,7 @@ public class DaoCancion extends AdapterDao<Cancion> {
         if (!(array.length == 0) && !text.isEmpty()) {
             half = array.length / 2;
             int aux = 0;
-            // System.out.println(text.trim().toLowerCase().charAt(0) + "*****" + half +
-            // "***" +
-            // array[half].get(attribute).toString().trim().toLowerCase().charAt(0));
+            
             if (text.trim().toLowerCase().charAt(0) > array[half].get(attribute).toString().trim().toLowerCase()
                     .charAt(0))
                 aux = 1;
@@ -332,3 +274,87 @@ public class DaoCancion extends AdapterDao<Cancion> {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   /* public LinkedList<HashMap<String, String>> orderQ(Integer type, String attribute) throws Exception {
+        LinkedList<HashMap<String, String>> lista = new LinkedList<>();
+        if (!all().isEmpty()) {
+            HashMap<String, String> arr[] = all().toArray();
+            quickSort(arr, 0, arr.length - 1, type, attribute);
+            lista.toList(arr);
+        }
+        return lista;
+    }*/
+        /*
+     * public LinkedList<HashMap<String, String>> orderByCancion(Integer type,
+     * String attribute) throws Exception {
+     * 
+     * LinkedList<HashMap<String, String>> lista = all();
+     * if (!lista.isEmpty()) {
+     * HashMap arr[] = lista.toArray();
+     * int n = arr.length;
+     * if (type == Utiles.ASCEDENTE) {
+     * // ascendente
+     * for (int i = 0; i < n - 1; i++) {
+     * int min_index = i;
+     * for (int j = i + 1; j < n; j++) {
+     * if (arr[j].get(attribute).toString().toLowerCase()
+     * .compareTo(arr[min_index].get(attribute).toString().toLowerCase()) < 0) {
+     * min_index = j;
+     * }
+     * }
+     * 
+     * HashMap temp = arr[min_index];
+     * arr[min_index] = arr[i];
+     * arr[i] = temp;
+     * }
+     * } else {
+     * // descendente
+     * for (int i = 0; i < n - 1; i++) {
+     * int min_index = i;
+     * for (int j = i + 1; j < n; j++) {
+     * if (arr[j].get(attribute).toString().toLowerCase()
+     * .compareTo(arr[min_index].get(attribute).toString().toLowerCase()) > 0) {
+     * min_index = j;
+     * }
+     * }
+     * 
+     * HashMap temp = arr[min_index];
+     * arr[min_index] = arr[i];
+     * arr[i] = temp;
+     * }
+     * }
+     * 
+     * }
+     * return lista;
+     * }
+     * 
+     */
+// public LinkedList<HashMap<String, String>> getOriginalList() throws Exception {
+//     return all();
+// }

@@ -19,7 +19,7 @@ import Genero from 'Frontend/generated/com/practica02/base/models/Genero';
 export const config: ViewConfig = {
   title: 'Cancion',
   menu: {
-    icon: 'vaadin:clipboard-check',
+    icon: 'vaadin:music',
     order: 2,
     title: 'Cancion',
   },
@@ -411,14 +411,7 @@ export default function CancionLisView() {
     console.log(event);
     const direction = event.detail.value;
     console.log(`sorting by ${columnId} to ${direction}`);
-    var dir = (direction == "asc") ? 1 : 2;
-    if (direction === "original") {
-      dir = 0; // o null, según tu backend
-    } else if (direction === "asc") {
-      dir = 1;
-    } else {
-      dir = 2;
-    }
+    var dir = (direction == "asc") ? 1 : 2 ;
     CancionService.order(columnId, dir).then((data) => {
       setItems(data);
     });

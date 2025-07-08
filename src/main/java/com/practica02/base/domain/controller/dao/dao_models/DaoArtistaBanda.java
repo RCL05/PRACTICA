@@ -153,26 +153,27 @@ public class DaoArtistaBanda extends AdapterDao<ArtistaBanda> {
         }
         return lista;
     }
+
     private int binarySearch(HashMap<String, String>[] arr, String attribute, String text) {
-    int low = 0;
-    int high = arr.length - 1;
-    text = text.toLowerCase();
+        int low = 0;
+        int high = arr.length - 1;
+        text = text.toLowerCase();
 
-    while (low <= high) {
-        int mid = (low + high) / 2;
-        String midVal = arr[mid].get(attribute).toString().toLowerCase();
-        int cmp = midVal.compareTo(text);
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            String midVal = arr[mid].get(attribute).toString().toLowerCase();
+            int cmp = midVal.compareTo(text);
 
-        if (cmp < 0) {
-            low = mid + 1;
-        } else if (cmp > 0) {
-            high = mid - 1;
-        } else {
-            return mid; // encontrado
+            if (cmp < 0) {
+                low = mid + 1;
+            } else if (cmp > 0) {
+                high = mid - 1;
+            } else {
+                return mid; // encontrado
+            }
         }
+        return -1; // no encontrado
     }
-    return -1; // no encontrado
-}
 
     // public LinkedList<HashMap<String, String>> search(String attribute, String
     // text, Integer type) throws Exception {
@@ -212,18 +213,20 @@ public class DaoArtistaBanda extends AdapterDao<ArtistaBanda> {
     // }
     // return resp;
     // }
-public LinkedList<HashMap<String, String>> searchExact(String attribute, String text) throws Exception {
-    LinkedList<HashMap<String, String>> lista = orderQ(Utiles.ASCEDENTE, attribute); // Ordena primero
-    LinkedList<HashMap<String, String>> resp = new LinkedList<>();
-    if (!lista.isEmpty()) {
-        HashMap<String, String>[] arr = lista.toArray();
-        int idx = binarySearch(arr, attribute, text);
-        if (idx != -1) {
-            resp.add(arr[idx]);
+
+    public LinkedList<HashMap<String, String>> searchExact(String attribute, String text) throws Exception {
+        LinkedList<HashMap<String, String>> lista = orderQ(Utiles.ASCEDENTE, attribute); // Ordena primero
+        LinkedList<HashMap<String, String>> resp = new LinkedList<>();
+        if (!lista.isEmpty()) {
+            HashMap<String, String>[] arr = lista.toArray();
+            int idx = binarySearch(arr, attribute, text);
+            if (idx != -1) {
+                resp.add(arr[idx]);
+            }
         }
+        return resp;
     }
-    return resp;
-}
+
     public LinkedList<HashMap<String, String>> search(String attribute, String text, Integer type) throws Exception {
         LinkedList<HashMap<String, String>> lista = all();
         LinkedList<HashMap<String, String>> resp = new LinkedList<>();
